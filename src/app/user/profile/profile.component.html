@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-md-10">
+      <div class="panel panel-default">
+        <div class="panel-head">
+          <div class="user-info">
+            <div class="user-cover">
+              <img alt="cover image" width="100%" height="350px" src="./assets/images/cover_default.jpg"/>
+            </div>
+            <div class="user-avatar">
+              <img class="avatar-image" alt="avatar image" src="{{owner.avatar}}" height="200px"/>
+            </div>
+          </div>
+          <div *ngIf="currentUser.id != owner.id" class="action-profile">
+            <div>
+              <button *ngIf="status=='NOTHING'" class="btn btn-default" (click)="sendRequestFriend()">
+                <i class="fa fa-user-plus "></i><span> {{'Add Friend' | translate}}</span>
+              </button>
+              <button *ngIf="(status=='PENDING') && (action_user_id != currentUser.id)"  class="btn btn-default" (click)="confirmRequestFriend()">
+                <i class="fa fa-user-plus "></i><span> {{'Confirm Friend Request' | translate}}</span>
+              </button>
+              <button *ngIf="(status=='PENDING') && (action_user_id == currentUser.id)"  class="btn btn-default" (click)="cancelRequestFriend()">
+                <i class="fa fa-user-plus "></i><span> {{'Cancel Friend Request' | translate}}</span>
+              </button>
+              <div *ngIf="(status=='ACCEPTED')" class="dropdown" style="float: left; margin-right: 5px;">
+                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-check"></i><span style="margin-right: 3px"> {{'Friend' | translate}}  </span><i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li ng-click="waitFlag=false">
+                    <a (click)="removeFriend()">
+                      {{'Unfriend' | translate}}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <button class="btn btn-default" (click)="createChatBox()">
+                <i class="fa fa-comment"></i><span> {{'Message' | translate}}</span>
+              </button>
+            </div>
+           <!--  <div ng-show="confirmFlag">
+              
+              <button class="btn btn-default" ng-click="createChatBox(owner)">
+                <i class="fa fa-comment"></i><span> Message</span>
+              </button>
+            </div> --> 
+          </div>
+        </div>
+        <div class="panel-body" style="padding: 0 15px">
+          <ul class="text-center user-tabs">
+            <li><a><span>{{'TimeLine' | translate}}</span></a></li>
+            <li><a><span>{{'About' | translate}}</span></a></li>
+            <li><a><span>{{'Friends' | translate}}</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+          <post-ui [posts]="posts"></post-ui>
+        </div>
+      </div>
+    </div>
+  </div>

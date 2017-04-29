@@ -1,0 +1,114 @@
+<div class="frontpage content">
+  <div class="container-wrapper">
+    <header class="header home" style="height: 60px">
+      <div class="container">
+        <div class="header-content">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-7">
+              <a class="header-logo" href="/">
+                <img src="./assets/images/logo_MatchMaker.png" alt="Dich vu mai moi"/>
+              </a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-5">
+              <ul class="header-action hidden-xs">
+                <li>
+                  <a class="header-login" data-target="#login" data-toggle="modal" href="">
+                    <i class="fa fa-lock"></i>
+                    Log in
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+     <!-- LOGIN-FORM COMPONENT -->
+    <login-form></login-form>
+    <div class="main" style="min-height: 366px">
+      <section class="region register top">
+        <div class="container">
+          <header class="region-header centered">
+            <h2 class="region-title">Get started now</h2>
+          </header>
+          <div class="region-body">
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <form [formGroup]="register" (ngSubmit)="doSignUp(register.value)" class="register-form register-form-top">
+                  <div *ngIf="signUpError.status" class="callout callout-danger" >
+	              	<p>{{signUpError.msg}}</p>
+	              </div>
+                  <div *ngIf="!nextForm">
+                  	<div class="form-row" [ngClass]="{'has-error': !register.controls['email'].valid && register.controls['email'].touched}">
+	                   <input  name="email"  class="form-input has-icon" placeholder="Email" type="email" [formControl]="register.controls['email']" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+	                   <label *ngIf="!register.controls['email'].valid" class="error" >You must enter an email address.</label>
+	                   <i class="form-icon fa fa-envelope"></i>
+	                </div>
+	                 <div class="form-row"  [ngClass]="{'has-error': !register.controls['password'].valid && register.controls['password'].touched}">
+	                   <input name="password" class="form-input has-icon" placeholder="Password" type="password" [formControl]="register.controls['password']">
+	                   <label *ngIf="!register.controls['password'].valid" class="error">You must enter a password.</label>
+	                   <i class="form-icon fa fa-lock"></i>
+	                 </div>
+	                 <div class="form-row" [ngClass]="{'has-error':!register.controls['born'].valid && register.controls['born'].touched}">
+	                   <input  name="born" class="form-input has-icon" placeholder="yyyy/mm/dd" type="text" [formControl]="register.controls['born']" pattern="\d{4}/\d{1,2}/\d{1,2}">
+	                   <label *ngIf="!register.controls['born'].valid" class="error"  >You must enter a born.</label>
+	                   <i class="form-icon fa fa-calendar"></i><!-- fa-user -->
+	                 </div>
+	                 <div class="form-extend">
+	                   <div class="form-checkbox" >
+	                  	 <input [(ngModel)]="termOfServices" [ngModelOptions]="{standalone: true}" name="termsOfServices" type="checkbox">
+	                     <label (click)="toggleTerm()" class="form-checkbox-label" for="termsOfServices">
+	                       I have read and agree to the <a href="#" target="_blank">Terms of Services.</a>
+	                    	You must agree with the Terms and Conditions</label>
+	                   </div>
+	                 </div>
+	                 <div class="form-submit">
+	                 	<button (click)="nextForm=true" [disabled]="!register.controls['email'].valid || !register.controls['password'].valid || !register.controls['born'].valid" class="form-button button-register" style="margin-top: 10px">Next</button>
+	                 </div>
+                  </div>
+                  <div *ngIf="nextForm">
+                  	<div class="form-row" [ngClass]="{'has-error': !register.controls['givenName'].valid && register.controls['givenName'].touched}">
+	                   <input  name="givenName"  class="form-input has-icon" placeholder="GivenName" type="text" [formControl]="register.controls['givenName']">
+	                   <label *ngIf="!register.controls['givenName'].valid" class="error" >You must enter a givenName.</label>
+	                   <i class="form-icon fa fa-user"></i>
+	                </div>
+	                 <div class="form-row"  [ngClass]="{'has-error': !register.controls['familyName'].valid && register.controls['familyName'].touched}">
+	                   <input name="familyName" class="form-input has-icon" placeholder="FamilyName" type="text" [formControl]="register.controls['familyName']">
+	                   <label *ngIf="!register.controls['familyName'].valid" class="error">You must enter a familyName.</label>
+	                   <i class="form-icon fa fa-user"></i>
+	                 </div>
+	                 <div class="form-row" [ngClass]="{'has-error':!register.controls['address'].valid && register.controls['address'].touched}">
+	                   <input  name="address" class="form-input has-icon" placeholder="Address" type="text" [formControl]="register.controls['address']">
+	                   <label *ngIf="!register.controls['address'].valid" class="error"  >You must enter an address.</label>
+	                   <i class="form-icon fa fa-address-card"></i><!-- fa-user -->
+	                 </div>
+	                 <div class="form-row" [ngClass]="{'has-error':!register.controls['phone'].valid && register.controls['phone'].touched}">
+	                   <input  name="phone" class="form-input has-icon" placeholder="Phone" type="number" [formControl]="register.controls['phone']">
+	                   <label *ngIf="!register.controls['phone'].valid" class="error"  >You must enter an phone.</label>
+	                   <i class="form-icon fa fa-phone-square"></i><!-- fa-user -->
+	                 </div>
+	                  <div class="form-submit" style="margin-top: 15px;"><!-- ng-disabled="signUpForm.$invalid"  -->
+		                  <button class="form-button button-register" [disabled]="!register.valid"  type="submit">Sign up for free</button>
+		              </div>
+                  </div>
+                  
+                  <div class="form-social">
+                    <div class="form-social-header">
+                      <span>Or sign up with social</span>
+                    </div>
+                    <div class="form-social-content">
+                      <a href="#" class="social-button original facebook"><i class="fa fa-facebook"></i></a>
+                      <a href="#" class="social-button original google"><i class="fa fa-google-plus"></i></a>
+                      <a href="#" class="social-button original twitter"><i class="fa fa-twitter"></i></a>
+                      <a href="#" class="social-button original linkedin"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

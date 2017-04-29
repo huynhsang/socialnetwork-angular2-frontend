@@ -1,0 +1,57 @@
+<div id="login" class="modal modal-login fade in" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content modal-rounded">
+        <div class="modal-inner">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="modal-login-content">
+                <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" novalidate>
+                  <div class="form-logo">
+                    <img src="./assets/images/logo_MatchMaker.jpg">
+                  </div>
+                  <div *ngIf="loginError.status" class="callout callout-danger" >
+                    <p>{{loginError.msg}}</p>
+                  </div>
+                  <div class="form-row" >
+                    <label class="sr-only">Email</label>
+                    <input formControlName="email" class="form-input has-icon" placeholder="Email" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"><!--  [(ngModel)]="credentials.email" #emailLogin="ngModel" -->
+                    <i class="form-icon fa fa-envelope"></i>
+                  </div>
+                  <div class="form-row" >
+                    <label class="sr-only">Password</label>
+                    <input formControlName="password" class="form-input has-icon" placeholder="Password" type="password">
+                    <i class="form-icon fa fa-lock"></i>
+                  </div>
+                  <div class="form-extend">
+                    <div class="form-checkbox">
+                      <input [(ngModel)]="rememberMe" [ngModelOptions]="{standalone: true}" type="checkbox">
+                      <label (click)="toggle()" class="form-checkbox-label">Remember me</label>
+                    </div>
+                    <a class="form-forgot-password" href="">Forgot password?</a>
+                  </div>
+                  <div class="form-submit">
+                    <button [disabled]="!loginForm.valid" class="form-button" type="submit">Login</button>
+                  </div>
+                  <div class="form-row">
+                    <label class="form-label member">Not a member ? <a href="/index">Sign up now</a></label>
+                  </div>
+                  <div class="form-social">
+                    <div class="form-social-header">
+                      <span>Or login with social</span>
+                    </div>
+                    <div class="form-social-content">
+                      <a href="#" class="social-button original facebook"><i class="fa fa-facebook"></i></a>
+                      <a href="#" class="social-button original google"><i class="fa fa-google-plus"></i></a>
+                      <a href="#" class="social-button original twitter"><i class="fa fa-twitter"></i></a>
+                      <a href="#" class="social-button original linkedin"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <a href="#" class="button button-only-icon button-small button-blue modal-close circle" data-dismiss="modal"><i class="fa fa-times"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

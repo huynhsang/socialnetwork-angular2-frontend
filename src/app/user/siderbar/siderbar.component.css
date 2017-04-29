@@ -1,0 +1,143 @@
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+.left-side{
+	position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+}
+
+.left-side .user-panel{
+	padding-left: 25px;
+}
+
+.left-side .img-circle{
+	width: 45px;
+    height: 45px;
+    border: 1px solid #dfdfdf;
+}
+
+.left-side .pull-left{
+	padding: 5px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background-color: #e9ebee;
+    color: #1d2129;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+/* Sidebar Styles */
+
+.sidebar-nav {
+    /* position: absolute;
+    top: 0;
+    width: 250px; */
+    margin: 0;
+    padding: 70px 0 0 25px;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #1d2129;
+}
+
+.sidebar-nav li a:hover, .sidebar-nav li a.active {
+    text-decoration: none;
+    color: #1d2129;
+    background: #fff;
+    border-radius: 1px solid;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+}
+
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav li a i{
+	margin-left: -20px;
+    margin-right: 20px;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #wrapper.toggled {
+        padding-left: 250px;
+    }
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+    }
+
+   
+}
+
+/*Suggest People May Know*/
+.suggest-header{
+	color: #90949c;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.search-info{
+	margin-top: 10px;
+    text-align: center;
+}

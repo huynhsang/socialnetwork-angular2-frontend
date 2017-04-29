@@ -1,0 +1,100 @@
+<div class="row" style="margin-top: 50px">
+	<div class="col-md-2">
+		<div id="wrapper" class="toggled">
+		  <!-- Sidebar -->
+		  <div id="sidebar-wrapper">
+		  	<aside class="left-side sidebar-offcanvas">
+		  	
+			 	<div class="user-panel">
+			     <div class="pull-left image">
+			       <!--<img gravatar-src="currentUser.email" class="img-circle" alt="User Image">-->
+			       <img src="{{currentUser.avatar}}" class="img-circle" alt="User Avatar"/>
+			     </div>
+			     <div class="pull-left info">
+			       <p style="margin-bottom: 5px;">
+			         <a routerLink="/profile/{{currentUser.id}}">
+			           {{'Hello' | translate}}, {{currentUser.givenName}}
+			         </a>
+			       </p>
+			
+			       <p>
+			         <small><a routerLink="/profile/{{currentUser.id}}"> {{currentUser.email}} </a></small>
+			       </p>
+			     </div>
+			   </div>
+			   <ul class="sidebar-nav">
+			       <li>
+			           <a routerLink="/home" routerLinkActive="active">
+			           <i class="fa fa-fw fa-dashboard"></i>
+			           {{'Dashboard' | translate}}</a>
+			       </li>
+			       <li>
+			           <a routerLink="/search" routerLinkActive="active">
+			           <i class="fa fa-fw fa-search"></i>
+			           {{'Search' | translate}}</a>
+			       </li>
+			       <li>
+			           <a href="">
+			           <i class="fa fa-fw fa-cog"></i>
+			           {{'Overview' | translate}}</a>
+			       </li>
+			       <li>
+			           <a href="">
+			           <i class="fa fa-fw fa-cog"></i>
+			           {{'Events' | translate}}</a>
+			       </li>
+			       <li>
+			           <a href="">
+			           <i class="fa fa-fw fa-cog"></i>
+			           {{'About' | translate}}</a>
+			       </li>
+			       <li>
+			           <a href="#">
+			           <i class="fa fa-fw fa-cog"></i>
+			           {{'Services' | translate}}</a>
+			       </li>
+			   </ul>
+			</aside>
+		  </div>
+		  <!-- /#sidebar-wrapper -->
+		</div>
+	</div>
+	<div class="col-md-10">
+		<div class="row" style="margin-top: 15px;">
+			<div class="col-md-8">
+				<router-outlet></router-outlet>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-default">
+			        <div class="panel-body slide-search">
+			        	<div class="suggest-header">
+			        		{{'Suggested People May Know' | translate}}
+			        	</div>
+			        	<div id="carousel-generic" class="carousel slide" data-ride="carousel">
+						    <div class="carousel-inner" role="listbox">
+						        <div *ngFor="let person of people" class="item" [ngClass]="{active: isActive(person)}">
+						            <img src="{{person.avatar}}" alt="Avatar">
+						            <div class="search-info">
+						                <a routerLink="/profile/{{person.id}}" style="cursor: pointer">{{person.givenName}} {{person.familyName}}</a>
+						                <p>{{person.address}}</p>
+						                <button type="button" class="btn btn-default"><span><i class="fa fa-user-plus"></i></span>{{'Add Friend' | translate}}</button>
+						            </div>
+						        </div>
+						    </div>
+						
+						    <!-- Controls -->
+						    <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+						        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						        <span class="sr-only">Previous</span>
+						    </a>
+						    <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+						        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						        <span class="sr-only">Next</span>
+						    </a>
+						</div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>

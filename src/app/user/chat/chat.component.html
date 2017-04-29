@@ -1,0 +1,43 @@
+<div class="wrapper-list-chat">
+  <div class="panel panel-default" style="height: 100%;   overflow: scroll; ">
+    <ul>
+      <li *ngFor="let item of users">
+        <a class="btn eachFriend" routerLink="/profile/{{item.id}}" (click)="createChatBox()">
+          <div class="wrapper_element">
+            <div class="avatar_element">
+              <img src="{{item.avatar}}" height="32px" width="32px" alt="avatar"/>
+            </div>
+            <div class="status_element">
+              <i class="fa fa-circle "></i>
+            </div>
+            <div class="name_element">
+              {{item.givenName}} {{item.familyName}}
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- <div class="wrapper-form-chat">
+  <div class="panel panel-default chatBox" style="">
+    <div class="panel-heading" style="background-color:#3B5998; height: 13%">
+      <a style="color: #ffffff; font-weight: 600">
+        item.userName item.roomName
+      </a>
+      <a (click)="initChat.splice(this)" href="" class="right"><i class="ion-close" style="color:rgb(150, 152, 155)"></i></a>
+    </div>
+    <div class="panel-body contentChatBox">
+      <div> ng-repeat="messages in allMessages | filter: {roomName: item.roomName}"
+        <div class="clearfix" >ng-repeat="msg in messages.packages"
+          <p class="formMessage message-new left"  >msg.content</p> 
+          <p class="formMessage message-personal right" ng-show="msg.byUserId == currentUser.id" >{{msg.content}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="panel-footer inputChatBox" style="position: absolute; bottom: 0">
+      <input type="text"  placeholder="Type a message..." autofocus>
+    </div>
+  </div>
+</div> -->

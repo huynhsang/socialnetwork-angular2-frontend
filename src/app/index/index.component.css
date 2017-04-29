@@ -1,0 +1,366 @@
+/*head index*/
+
+.frontpage.content {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+.container-wrapper {
+  position: relative;
+}
+.header.home {
+  background-color: rgba(19,20,24,0.6);
+}
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 12;
+  background-color: #131418;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: transform 0.4s ease,background-color 0.25s ease;
+  -webkit-transition: background-color 0.25s ease,-webkit-transform 0.4s ease;
+  transition: background-color 0.25s ease,-webkit-transform 0.4s ease;
+  transition: transform 0.4s ease,background-color 0.25s ease;
+  transition: transform 0.4s ease,background-color 0.25s ease,-webkit-transform 0.4s ease;
+}
+.header-content {
+  padding: 12px 0;
+}
+.header-logo, .header-menu {
+  float: left;
+}
+.header-logo img {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+.header-action {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header-login {
+  border-radius: 4px;
+  display: block;
+  height: 36px;
+  background-color: rgba(19,20,24,0.5);
+  border: 1px solid rgba(68,68,68,0.5);
+}
+.header-action li {
+  position: relative;
+  float: right;
+}
+.header-action a {
+  position: relative;
+  display: block;
+  padding: 0 8px;
+  font-size: 18px;
+  text-decoration: none;
+  line-height: 36px;
+  color: #a4a4a4;
+}
+.header-action .header-login {
+  padding: 0 20px;
+  color: #fff;
+  font-size: 15px;
+  line-height: 34px;
+}
+.header-login i {
+  margin-right: 15px;
+  font-size: 1.1em;
+}
+
+
+/*main index*/
+.main {
+  background-color: #fff;
+  position: relative;
+  padding-top: 60px;
+  opacity: 1;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: transform 0.4s ease;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease,-webkit-transform 0.4s ease;
+}
+.register.top {
+  margin-top: -60px;
+}
+.register {
+  background: #131418 url("./assets/images/bg-signup.jpg") center top no-repeat;
+  background-size: 100% 100%;
+}
+.region {
+  position: relative;
+}
+@media screen and (min-width: 992px){
+  .region{
+    padding: 100px 0;
+  }
+}
+.region .centered {
+  text-align: center;
+}
+.region-title {
+  font-size: 36px;
+}
+.region-title {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  color: #fff;
+}
+.region-body {
+  margin-top: 40px;
+}
+.form-row:first-child {
+  margin-top: 0;
+}
+.form-row {
+  position: relative;
+  margin: 15px 0 0;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+label.error {
+  margin: 5px 0 0;
+  font-weight: 400;
+  color: #aaa;
+}
+.form-input.error {
+  border-color: #a94442;
+}
+.form-input.has-icon {
+  padding-left: 70px;
+}
+.form-input {
+  border-radius: 4px;
+  display: block;
+  padding: 6px 12px;
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+}
+.form-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 50px;
+  width: 55px;
+  font-size: 1.2em;
+  line-height: 50px;
+  text-align: center;
+  color: #999;
+}
+.register .form-extend, .register .form-social-header span {
+  color: #fff;
+}
+.form-extend {
+  margin: 20px 0;
+  position: relative;
+}
+.form-checkbox input {
+  position: absolute;
+  top: 0;
+}
+.form-checkbox-label {
+  position: relative;
+  float: left;
+  padding-left: 20px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.form-checkbox-label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: "\f096";
+  font-family: 'FontAwesome';
+  font-size: 1.1em;
+}
+.form-checkbox-label a {
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+.form-button.button-register {
+  background-color: #3664c6;
+}
+.form-button {
+  border-radius: 4px;
+  display: block;
+  height: 50px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 50px;
+  text-align: center;
+  border: 0;
+  background-color: #1376bb;
+  color: #fff;
+}
+.form-social {
+  text-align: center;
+}
+.form-social-header {
+  margin: 25px 0;
+}
+.form-social-header span {
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+}
+.form-social-header span::before {
+  left: 100%;
+}
+.form-social-header span::after {
+  right: 100%;
+}
+.form-social-header span::before, .form-social-header span::after {
+  position: absolute;
+  top: 50%;
+  display: block;
+  height: 1px;
+  width: 30px;
+  background-color: #999;
+  content: "";
+}
+
+.social-button.original {
+  color: #fff;
+}
+.social-button {
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0 3px;
+  height: 36px;
+  width: 36px;
+  font-size: 1.3em;
+  line-height: 36px;
+  text-align: center;
+}
+.social-button.original.facebook {
+  background-color: #3b5998;
+}
+.social-button.original.google {
+  background-color: #cf1516;
+}
+.social-button.original.twitter {
+  background-color: #00aced;
+}
+.social-button.original.linkedin {
+  background-color: #007bb6;
+}
+
+
+/*modal login*/
+/* .modal-login .modal-content {
+  padding: 20px;
+}
+.form-logo {
+  text-align: center;
+  margin-top: 36px;
+  margin-bottom: 44px;
+}
+.button.circle {
+  border-radius: 50%;
+}
+.modal-close {
+  position: absolute;
+  top: -13px;
+  right: -13px;
+}
+.button-blue {
+  background-color: #1376bb;
+  border-color: #1376bb;
+  color: #fff !important;
+}
+.button-small {
+  height: 26px;
+  width: 26px;
+  line-height: 24px;
+}
+.button-only-icon {
+  padding: 0;
+  text-align: center;
+}
+.form-checkbox-label {
+  position: relative;
+  float: left;
+  padding-left: 20px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.form-checkbox-label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: "\f096";
+  font-family: 'FontAwesome';
+  font-size: 1.1em;
+}
+.form-checkbox input:checked + label::before {
+  content: "\f046";
+}
+.form-row::before, .form-row::after, .form-extend::before, .form-extend::after {
+  content: "";
+  display: table;
+}
+.form-icon::after {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  height: 30px;
+  width: 1px;
+  background-color: #e4e4e4;
+  content: "";
+}
+.form-label {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+}
+.form-label.member {
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.form-forgot-password {
+  float: right;
+}
+.form-row::after, .form-extend::after {
+  clear: both;
+}
+ */

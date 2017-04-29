@@ -1,0 +1,45 @@
+html,
+body {
+ 	background-color: #e9ebee;
+    color: #1d2129;
+}
+header.header{
+	position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+
+a{
+	cursor: pointer;
+}
+
+.flag-icon-background {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.flag-icon {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 1.33333333em;
+  line-height: 1em;
+}
+.flag-icon:before {
+  content: "\00a0";
+}
+.flag-icon-us {
+  background-image: url(../images/flags/us.svg);
+}
+.flag-icon-vn {
+  background-image: url(../images/flags/vn.svg);
+}

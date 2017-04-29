@@ -1,0 +1,30 @@
+<div class="panel panel-default" *ngFor="let person of users">
+  <div class="panel-body">
+    <div class="row" style="position: relative; padding: 0 15px">
+    	<div class="col-md-4">
+    		<div class="showImageSearch">
+		        <img src="{{person.avatar}}" height="150px" alt="image user"/>
+		    </div>
+    	</div>
+    	<div class="col-md-8">
+    		<h3 style="margin: 0">
+        		<a routerLink="/profile/{{person.id}}">{{person.givenName}} {{person.familyName}}</a>
+	        </h3>
+	        <p style="color:#4e5665">{{person.email}}</p>
+	        <p style="color:#9197a3">{{person.address}}</p>
+    	</div>
+      
+      
+      <div style="position:absolute; right: 15px; top: 0">
+        <!-- <button type="button" class="btn btn-default"><span><i class="fa fa-user-plus"></i></span>Add Friend</button> -->
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span>...<i class="fa fa-caret-down "></i></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Send message</a></li>
+          <li><a href="#">Post</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<p *ngIf="users.length == 0" style="background-color: rgba(241, 89, 55, 0.72);" class="text-center noticeError">Not Found</p>

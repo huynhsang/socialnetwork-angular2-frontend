@@ -1,0 +1,66 @@
+<div class="panel panel-default">
+        <div class="panel-heading">
+          <ul class="user-post">
+            <li><a (click)="choosePost = false"><i class="fa fa-pencil-square"></i><span>{{'Status' | translate}}</span></a></li>
+            <li><a (click)="choosePost = true"><i class="fa fa-picture-o"></i><span>{{'Photo' | translate}}</span></a></li>
+          </ul>
+        </div>
+        <div class="panel-body">
+          <div class="left">
+            <img class="avatar-post" src="{{currentUser.avatar}}" height="40px" width="40px"/>
+          </div>
+          <div class="left">
+            <textarea id="ownerText" [(ngModel)]="content" rows='2' placeholder="{{'What\'s on your mind?' | translate}}"></textarea>
+          </div>
+          <ul class="img_load">
+          	<li *ngFor="let item of file_srcs">
+          		<img src="{{item}}" alt=""/>
+          	</li>
+          </ul>
+          <div *ngIf="choosePost" style="margin-bottom: 20px">
+            <hr>
+            <div class="upload">
+			  <input type="file" name="img" class="input-file" (change)="fileChange(input)" #input multiple>
+			  <label for="img">
+			    <span class="add-image">
+			      {{'Add' | translate}} <br> {{'Image' | translate}}
+			    </span>
+			    <output id="list"></output>
+			  </label>
+			</div>
+          </div>
+        </div>
+        <div class="panel-footer" style="height: 45px">
+          <button class="btn right btn-post" style="padding: 2px 15px" (click)="upload()">
+            {{'Post' | translate}}
+          </button>
+        </div>
+      </div>
+
+      <div class="panel panel-default" *ngFor="let item of posts | sortDate">
+        <div class="panel-heading post-header">
+          <div class="headPost">
+            <div class="left" style="cursor: pointer">
+              <img src="{{item.owner.avatar}}" height="40px" width="40px"/>
+            </div>
+            <div class="left">
+              <div class="postByOwnerName">{{item.owner.givenName}} <span>{{item.title | translate}}</span></div>
+              <p style="margin-left: 5px; color: #9197a3">{{item.created | date:'medium'}}</p>
+            </div>
+            <div class="right">
+              <span class="btn" style="color: rgb(151, 153, 155)"><i class="fa fa-chevron-down "></i></span>
+            </div>
+          </div>
+        </div>
+        <div contentEditable="true" class="panel-body">
+          <div class="post-content">
+            <div  class="post-text">
+              {{item.content}}
+            </div>
+            <div class="post-image">
+              <img *ngIf="item.images.length == 1" src="{{item.images[0].path}}" width="100%" alt="image"/>
+              <carousel *ngIf="item.images.length > 1" [images]="item.images"></carousel>
+            </div>
+          </div>
+        </div>
+      </div>

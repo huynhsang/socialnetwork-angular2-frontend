@@ -1,0 +1,16 @@
+<header class="header">
+  	<navbar></navbar>
+</header>
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<!-- <a routerLink="./" routerLinkActive="active"
+        	[routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+        	<a routerLink="./profile" routerLinkActive="active">Profile</a> -->
+			<router-outlet></router-outlet>
+		</div>
+		<div class="col-md-2">
+			<chat></chat>
+		</div>
+	</div>
+</div>

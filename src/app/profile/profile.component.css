@@ -1,0 +1,38 @@
+/*onwerWall*/
+.user-avatar{
+  position: absolute;
+  top: 120px;
+  left: 50px
+}
+.avatar-image{
+  /*position: absolute;*/
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  width: 200px;
+}
+.action-profile{
+  position: absolute;
+  right: 30px;
+  top: 300px;
+}
+.user-tabs{
+  margin-bottom: 0;
+  list-style: none;
+}
+ul.user-tabs > li:first-child {
+  border-left: 1px #e9eaed solid;
+}
+ul.user-tabs > li {
+  float: left;
+  border-top: 0 !important;
+  border-right: 1px #e9eaed solid;
+  position: relative;
+}
+ul.user-tabs > li a {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #3b5998;
+}
